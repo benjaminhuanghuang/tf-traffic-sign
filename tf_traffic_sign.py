@@ -12,7 +12,8 @@ import numpy as np
 import tensorflow as tf
 
 def load_data(data_dir):
-    """Loads a data set and returns two lists:
+    """
+    Loads a data set and returns two lists:
     
     images: a list of Numpy arrays, each representing an image.
     labels: a list of numbers that represent the images labels.
@@ -65,7 +66,9 @@ def display_label_images(images, label):
         plt.imshow(image)
     plt.show()
 
-
+#--------------------------------------------------------
+#  Start running
+#--------------------------------------------------------
 # Load training and testing datasets.
 ROOT_PATH = "./data"
 train_data_dir = os.path.join(ROOT_PATH, "Training")
@@ -74,6 +77,7 @@ test_data_dir = os.path.join(ROOT_PATH, "Testing")
 # get images and labels (0 to 61)
 images, labels = load_data(train_data_dir)
 display_images_and_labels(images, labels)
+
 # Display all speed sign
 display_label_images(images, 32)
 
