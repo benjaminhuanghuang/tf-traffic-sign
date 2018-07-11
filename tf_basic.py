@@ -30,7 +30,8 @@ print(sess.run(result))
 # Close the session
 sess.close()
 
-'''
+'''  
+#  close the Session automatically
 with tf.Session() as sess:
     output = sess.run(result)
     print(output)

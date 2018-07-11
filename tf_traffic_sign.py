@@ -20,11 +20,12 @@ test_data_dir = os.path.join(ROOT_PATH, "Testing")
 images, labels = load_data(train_data_dir)
 
 # Resize images
-images32 = [transform.resize(image, (28, 28)) for image in images]
-images32 = rgb2gray(np.array(images32))
+images28 = [transform.resize(image, (28, 28)) for image in images]
+images28 = rgb2gray(np.array(images28))
 
 x = tf.placeholder(dtype = tf.float32, shape = [None, 28, 28])
 y = tf.placeholder(dtype = tf.int32, shape = [None])
+
 images_flat = tf.contrib.layers.flatten(x)
 logits = tf.contrib.layers.fully_connected(images_flat, 62, tf.nn.relu)
 loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(labels = y, logits = logits))
